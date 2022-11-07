@@ -32,20 +32,29 @@ function App() {
 
   return (
     <div className="App">
-<div>
+      <div className='colaboradores'>
+        <h1>Buscar colaborador</h1>
+        <input type="text"></input>
+        <button>Buscar</button>
+      </div>
+<div className='registro'>
+  <h2>Agregar registro</h2>
+  <div className='agregarRegistro'>
   <label>Nombre</label>
   <input onChange={valorNombre} type="text"></input>
-  <p>{nombre}</p>
   <label>Correo</label>
   <input onChange={valorCorreo} type="email"></input>
-  <p>{correo}</p>
   <button onClick={subirValor}>Subir</button>
-  </div>    
+  </div>
+  
+  </div>
+  <div className='resultados'> 
+    <h3>Lista de colaboradores</h3>
   <ul>
         {listaColaboradores.map(colaborador => <li key={colaborador.id}>
           <strong>Nombre: </strong>{colaborador.nombre} - <strong>Correo: </strong>{colaborador.correo}</li>)}
       </ul>
-    </div>
+    </div></div>   
   );
 }
 
