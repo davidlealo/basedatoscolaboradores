@@ -20,15 +20,26 @@ function App() {
     setCorreo(e.target.value)
   }
 
+  //Función nuevo elemento en la lista
+  const subirValor = (e)=>{
+    e.preventDefault()
+    if(nombre === "" || correo === "") {
+      alert('Por favor completa todos los campos antes de ingresar un nuevo registro a la base de datos')
+    }
+    else{
+      setListaColaboradores([...listaColaboradores, {id: Date.now(), nombre: nombre, correo: correo}])}
+  }
+
   return (
     <div className="App">
 <div>
   <label>Nombre</label>
-  <input onChange={valorNombre}></input>
+  <input onChange={valorNombre} type="text"></input>
   <p>{nombre}</p>
   <label>Correo</label>
-  <input onChange={valorCorreo}></input>
+  <input onChange={valorCorreo} type="email"></input>
   <p>{correo}</p>
+  <button onClick={subirValor}>Subir</button>
   </div>    
   <ul>
         {listaColaboradores.map(colaborador => <li key={colaborador.id}>
